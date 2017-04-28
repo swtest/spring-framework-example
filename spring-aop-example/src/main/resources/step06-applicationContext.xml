@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 스프링 aop 예제 -->
+	<bean id="customerService" class="kr.co.swtest.springframework.aop.example.service.impl.CustomerServiceImpl" />
+	
+	<bean id="transactionAopConfig" class="kr.co.swtest.springframework.aop.example.step06.TransactionAopConfig" />
+	
+	<!-- 
+		AnnotationAwareAspectJAutoProxyCreator를 생성하고, 
+		자동으로 @Aspect 애너테이션이 붙은 빈의 @PointCut으로 정의한 포인트 컷에 
+		일치하는 메서드를 프록시하는 빈이 생성됨.  
+	-->
+	<aop:aspectj-autoproxy />
+
+</beans>
